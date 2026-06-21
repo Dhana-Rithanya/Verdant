@@ -1,0 +1,16 @@
+# Render Blueprint — auto-deploy config (optional)
+services:
+  - type: web
+    name: verdant-api
+    env: node
+    buildCommand: cd .. && npm install && npm run build && cd server && npm install
+    startCommand: cd server && node index.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://verdant.vercel.app
