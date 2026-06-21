@@ -3,7 +3,7 @@ services:
   - type: web
     name: verdant-api
     env: node
-    buildCommand: cd .. && npm install && npm run build && cd server && npm install
+    buildCommand: cd .. && npm install && npm run build && cd server && rm -rf node_modules && npm install
     startCommand: cd server && node index.js
     envVars:
       - key: NODE_VERSION
