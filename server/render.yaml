@@ -1,10 +1,10 @@
-# Render Blueprint — auto-deploy config (optional)
 services:
   - type: web
     name: verdant-api
     env: node
-    buildCommand: cd .. && npm install && npm run build && cd server && rm -rf node_modules && npm install
-    startCommand: cd server && node index.js
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
     envVars:
       - key: NODE_VERSION
         value: 20
